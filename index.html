@@ -4,182 +4,200 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DATA-TRUST Lab | AI × IT × DATA × APP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#060a14;
-    --bg2:#0a1120;
-    --panel:#0d1526;
-    --border:rgba(255,255,255,0.08);
-    --text:#f5f7fa;
-    --muted:#9aa5b8;
+    --bg:#05070d;
+    --bg2:#0a0e18;
+    --panel:rgba(255,255,255,0.035);
+    --panel-solid:#0d1220;
+    --border:rgba(255,255,255,0.09);
+    --border-soft:rgba(255,255,255,0.06);
+    --text:#f3f5f9;
+    --muted:#8d96a8;
+    --muted-soft:#5f6a7d;
     --cyan:#22d3ee;
-    --blue:#3b82f6;
-    --purple:#8b5cf6;
-    --pink:#ec4899;
+    --blue:#4f8bff;
+    --purple:#9b7bf0;
+    --pink:#ec5b9c;
+    --amber:#f2a35c;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--bg);
+    background:
+      radial-gradient(1100px 620px at 82% -8%, rgba(79,139,255,0.16), transparent 60%),
+      radial-gradient(900px 560px at -6% 18%, rgba(155,123,240,0.13), transparent 55%),
+      var(--bg);
     color:var(--text);
-    font-family:"Segoe UI","Hiragino Sans","Yu Gothic",system-ui,-apple-system,sans-serif;
-    line-height:1.6;
+    font-family:"Manrope","Noto Sans JP",system-ui,-apple-system,"Hiragino Sans",sans-serif;
+    line-height:1.65;
     overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;text-decoration:none;}
-  .container{max-width:1200px;margin:0 auto;padding:0 32px;}
+  ::selection{background:rgba(34,211,238,0.25);}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
 
   /* Header */
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(6,10,20,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
+    background:rgba(5,7,13,0.6);
+    backdrop-filter:blur(16px) saturate(140%);
+    -webkit-backdrop-filter:blur(16px) saturate(140%);
+    border-bottom:1px solid var(--border-soft);
   }
   .navbar{
     display:flex;align-items:center;justify-content:space-between;
-    padding:18px 32px;max-width:1200px;margin:0 auto;
+    padding:16px 40px;max-width:1240px;margin:0 auto;
   }
   .brand{display:flex;align-items:center;gap:12px;}
   .brand-mark{
-    width:38px;height:38px;border-radius:10px;
+    width:36px;height:36px;border-radius:10px;
     background:linear-gradient(135deg,var(--cyan),var(--purple));
     display:flex;align-items:center;justify-content:center;
-    font-weight:800;color:#04101f;font-size:18px;flex-shrink:0;
+    font-weight:800;color:#03080f;font-size:16px;flex-shrink:0;
+    box-shadow:0 0 0 1px rgba(255,255,255,0.08) inset, 0 6px 18px rgba(79,139,255,0.25);
   }
-  .brand-text{display:flex;flex-direction:column;line-height:1.1;}
-  .brand-title{font-size:19px;font-weight:800;letter-spacing:0.5px;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.15;}
+  .brand-title{font-size:18px;font-weight:800;letter-spacing:0.2px;}
   .brand-title span{background:linear-gradient(90deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .brand-sub{font-size:10px;color:var(--muted);letter-spacing:2px;margin-top:2px;}
-  nav.links{display:flex;gap:36px;}
-  nav.links a{font-size:14px;color:var(--muted);font-weight:600;transition:color .2s;position:relative;padding-bottom:4px;}
+  .brand-sub{font-size:9.5px;color:var(--muted-soft);letter-spacing:2.5px;margin-top:2px;font-weight:600;}
+  nav.links{display:flex;gap:34px;}
+  nav.links a{font-size:13.5px;color:var(--muted);font-weight:600;transition:color .2s;position:relative;padding-bottom:4px;letter-spacing:0.2px;}
   nav.links a:hover,nav.links a.active{color:var(--text);}
   nav.links a.active::after{
     content:"";position:absolute;left:0;bottom:-2px;width:100%;height:2px;
     background:linear-gradient(90deg,var(--cyan),var(--blue));border-radius:2px;
   }
   .cta-btn{
-    border:1px solid rgba(34,211,238,0.5);
-    color:var(--text);padding:10px 20px;border-radius:999px;
-    font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;
-    transition:background .2s,transform .2s;white-space:nowrap;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.03);
+    color:var(--text);padding:9px 18px;border-radius:999px;
+    font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:8px;
+    transition:background .2s,transform .2s,border-color .2s;white-space:nowrap;
   }
-  .cta-btn:hover{background:rgba(34,211,238,0.12);transform:translateY(-1px);}
-  .menu-toggle{display:none;}
+  .cta-btn:hover{background:rgba(34,211,238,0.1);border-color:rgba(34,211,238,0.4);transform:translateY(-1px);}
 
   /* Hero */
-  .hero{
-    position:relative;padding:100px 32px 90px;overflow:hidden;
-  }
+  .hero{position:relative;padding:112px 40px 96px;overflow:hidden;}
   .hero-grid{
-    max-width:1200px;margin:0 auto;
+    max-width:1240px;margin:0 auto;position:relative;z-index:2;
     display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;
   }
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
-    font-size:14px;font-weight:700;color:var(--cyan);letter-spacing:1px;margin-bottom:22px;
+    font-size:13px;font-weight:700;color:var(--cyan);letter-spacing:0.5px;margin-bottom:24px;
+    background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.22);
+    padding:6px 14px;border-radius:999px;
   }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);}
   h1.hero-title{
-    font-size:clamp(38px,6vw,64px);font-weight:800;letter-spacing:-1px;line-height:1.08;margin-bottom:22px;
+    font-size:clamp(36px,5.6vw,60px);font-weight:800;letter-spacing:-1.2px;line-height:1.08;margin-bottom:24px;
   }
   h1.hero-title .grad{
-    background:linear-gradient(90deg,var(--cyan) 0%,var(--blue) 45%,var(--purple) 75%,var(--pink) 100%);
+    background:linear-gradient(90deg,var(--cyan) 0%,var(--blue) 40%,var(--purple) 75%,var(--pink) 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .hero-desc{color:var(--muted);font-size:16px;max-width:520px;margin-bottom:14px;}
-  .hero-tags{
-    display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--muted);font-size:14px;font-weight:600;
-    margin:20px 0 34px;letter-spacing:0.5px;
-  }
-  .hero-tags span::after{content:"·";margin-left:22px;color:rgba(255,255,255,0.25);}
-  .hero-tags span:last-child::after{content:"";margin-left:0;}
+  .hero-desc{color:var(--muted);font-size:16px;max-width:520px;margin-bottom:18px;font-weight:400;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px 0;color:var(--muted-soft);font-size:13.5px;font-weight:600;margin:22px 0 36px;letter-spacing:0.3px;}
+  .hero-tags span{padding:0 18px;position:relative;}
+  .hero-tags span:first-child{padding-left:0;}
+  .hero-tags span::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:3px;height:3px;border-radius:50%;background:var(--muted-soft);}
+  .hero-tags span:last-child::after{content:none;}
   .explore-btn{
     display:inline-flex;align-items:center;gap:10px;
     background:linear-gradient(90deg,var(--cyan),var(--blue));
-    color:#04101f;font-weight:800;font-size:14px;letter-spacing:0.5px;
-    padding:16px 30px;border-radius:999px;box-shadow:0 10px 30px rgba(34,211,238,0.25);
-    transition:transform .2s,box-shadow .2s;
+    color:#03080f;font-weight:800;font-size:14px;letter-spacing:0.2px;
+    padding:15px 28px;border-radius:999px;box-shadow:0 12px 32px rgba(34,211,238,0.22);
+    transition:transform .25s,box-shadow .25s;
   }
-  .explore-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(34,211,238,0.35);}
+  .explore-btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(34,211,238,0.32);}
 
-  .hero-art{position:relative;height:440px;}
-  .hero-art svg{width:100%;height:100%;overflow:visible;}
-  .dot-field{position:absolute;inset:0;opacity:.5;pointer-events:none;}
+  .hero-art{position:relative;height:440px;display:flex;align-items:center;justify-content:center;}
+  .hero-art svg{width:100%;height:100%;overflow:visible;position:relative;z-index:2;}
+  .glass-orb{
+    position:absolute;width:340px;height:340px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, rgba(79,139,255,0.22), rgba(155,123,240,0.08) 55%, transparent 75%);
+    filter:blur(6px);z-index:1;
+  }
+  .dot-field{position:absolute;inset:0;opacity:.45;pointer-events:none;z-index:0;}
 
   /* Feature strip */
-  .features{
-    border-top:1px solid var(--border);
-    padding:56px 32px;
+  .features{border-top:1px solid var(--border-soft);padding:60px 40px;}
+  .feature-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .feature{
+    text-align:left;padding:26px 22px;border-radius:18px;
+    background:var(--panel);border:1px solid var(--border-soft);
+    transition:transform .25s,border-color .25s,background .25s;
   }
-  .feature-grid{
-    max-width:1200px;margin:0 auto;
-    display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
-  }
-  .feature{text-align:center;padding:10px 12px;}
+  .feature:hover{transform:translateY(-4px);border-color:var(--border);background:rgba(255,255,255,0.055);}
   .feature-icon{
-    width:66px;height:66px;border-radius:16px;margin:0 auto 18px;
+    width:44px;height:44px;border-radius:12px;margin-bottom:16px;
     display:flex;align-items:center;justify-content:center;
-    background:var(--panel);border:1px solid var(--border);
+    background:rgba(255,255,255,0.05);border:1px solid var(--border-soft);
   }
-  .feature-icon svg{width:28px;height:28px;}
-  .feature h3{font-size:19px;font-weight:800;letter-spacing:1px;margin-bottom:6px;}
-  .feature p{color:var(--muted);font-size:13px;}
-  .feature .bar{width:36px;height:3px;border-radius:2px;margin:14px auto 0;}
-  .f-ai .bar{background:var(--cyan);} .f-it .bar{background:var(--blue);}
-  .f-data .bar{background:var(--purple);} .f-app .bar{background:var(--pink);}
+  .feature-icon svg{width:20px;height:20px;}
+  .feature h3{font-size:16px;font-weight:800;letter-spacing:0.5px;margin-bottom:6px;}
+  .feature p{color:var(--muted);font-size:13px;font-weight:400;}
 
   /* Projects */
-  .projects{padding:100px 32px;border-top:1px solid var(--border);background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);}
-  .section-head{max-width:1200px;margin:0 auto 50px;text-align:center;}
-  .section-eyebrow{color:var(--cyan);font-weight:700;font-size:13px;letter-spacing:2px;margin-bottom:12px;}
-  .section-head h2{font-size:clamp(28px,4vw,38px);font-weight:800;}
+  .projects{padding:110px 40px;border-top:1px solid var(--border-soft);}
+  .section-head{max-width:640px;margin:0 auto 54px;text-align:center;}
+  .section-eyebrow{color:var(--cyan);font-weight:700;font-size:12px;letter-spacing:2.5px;margin-bottom:14px;}
+  .section-head h2{font-size:clamp(26px,3.6vw,36px);font-weight:800;letter-spacing:-0.5px;}
   .section-head p{color:var(--muted);margin-top:12px;font-size:15px;}
 
-  .project-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;}
+  .project-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;}
   .project-card{
-    background:var(--panel);border:1px solid var(--border);border-radius:18px;
-    padding:30px 26px;display:flex;flex-direction:column;gap:14px;
-    transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden;
+    background:var(--panel);backdrop-filter:blur(10px);
+    border:1px solid var(--border-soft);border-radius:20px;
+    padding:28px 24px;display:flex;flex-direction:column;gap:12px;
+    transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .3s,background .3s,box-shadow .3s;
+    position:relative;overflow:hidden;
   }
   .project-card::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:3px;
-    background:var(--grad,linear-gradient(90deg,var(--cyan),var(--blue)));
+    content:"";position:absolute;inset:0;border-radius:20px;padding:1px;
+    background:var(--grad,linear-gradient(135deg,rgba(34,211,238,0.35),rgba(79,139,255,0.05)));
+    -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+    opacity:0;transition:opacity .3s;pointer-events:none;
   }
-  .project-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,0.18);box-shadow:0 18px 40px rgba(0,0,0,0.35);}
+  .project-card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.055);box-shadow:0 20px 44px rgba(0,0,0,0.4);}
+  .project-card:hover::before{opacity:1;}
   .project-tag{
-    align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:1px;
-    padding:5px 12px;border-radius:999px;color:#04101f;background:var(--grad,var(--cyan));
+    align-self:flex-start;font-size:10.5px;font-weight:800;letter-spacing:1px;
+    padding:5px 12px;border-radius:999px;color:#03080f;background:var(--grad,var(--cyan));
   }
-  .project-card h3{font-size:20px;font-weight:800;}
-  .project-card p{color:var(--muted);font-size:14px;flex:1;}
+  .project-card h3{font-size:18px;font-weight:800;letter-spacing:-0.2px;}
+  .project-card p{color:var(--muted);font-size:13.5px;flex:1;font-weight:400;}
   .project-link{
-    font-size:14px;font-weight:700;color:var(--text);display:inline-flex;align-items:center;gap:8px;
-    padding-top:6px;border-top:1px solid var(--border);margin-top:4px;
+    font-size:13.5px;font-weight:700;color:var(--text);display:inline-flex;align-items:center;gap:8px;
+    padding-top:14px;border-top:1px solid var(--border-soft);margin-top:2px;
   }
-  .project-link svg{width:14px;height:14px;transition:transform .2s;}
+  .project-link svg{width:13px;height:13px;transition:transform .2s;}
   .project-card:hover .project-link svg{transform:translateX(4px);}
 
-  /* About / Contact simple */
-  .split{padding:100px 32px;border-top:1px solid var(--border);}
-  .split-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-  .split h2{font-size:clamp(26px,4vw,34px);font-weight:800;margin-bottom:18px;}
-  .split p{color:var(--muted);font-size:15px;margin-bottom:14px;}
-  .contact-box{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:34px;}
-  .contact-box h3{font-size:18px;font-weight:800;margin-bottom:8px;}
-  .contact-box p{color:var(--muted);font-size:14px;margin-bottom:22px;}
-  .contact-row{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);padding:10px 0;border-top:1px solid var(--border);}
-  .contact-row:first-of-type{border-top:none;}
-  .contact-row svg{width:16px;height:16px;color:var(--cyan);flex-shrink:0;}
+  /* About */
+  .split{padding:110px 40px;border-top:1px solid var(--border-soft);}
+  .split-grid{max-width:720px;margin:0 auto;text-align:center;}
+  .split h2{font-size:clamp(24px,3.4vw,32px);font-weight:800;margin-bottom:18px;letter-spacing:-0.5px;}
+  .split p{color:var(--muted);font-size:14.5px;margin-bottom:14px;font-weight:400;}
 
-  footer{border-top:1px solid var(--border);padding:34px 32px;}
-  .footer-row{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-  .footer-row .brand-title{font-size:15px;}
-  footer p{color:var(--muted);font-size:13px;}
+  footer{border-top:1px solid var(--border-soft);padding:30px 40px;}
+  .footer-row{max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .footer-row .brand-title{font-size:14px;}
+  footer p{color:var(--muted-soft);font-size:12.5px;}
 
   @media (max-width:900px){
     nav.links{display:none;}
     .hero-grid{grid-template-columns:1fr;}
-    .hero-art{height:280px;order:-1;}
+    .hero-art{height:260px;order:-1;}
     .feature-grid{grid-template-columns:repeat(2,1fr);}
     .split-grid{grid-template-columns:1fr;gap:36px;}
   }
@@ -200,10 +218,10 @@
       <a href="#top" class="active">Home</a>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
-      <a href="#contact">Blog</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">Blog</a>
+      <a href="#about">Contact</a>
     </nav>
-    <a class="cta-btn" href="#contact">Get Started →</a>
+    <a class="cta-btn" href="#about">Get Started →</a>
   </div>
 </header>
 
@@ -211,8 +229,8 @@
   <div class="dot-field" aria-hidden="true">
     <svg width="100%" height="100%">
       <defs>
-        <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
-          <circle cx="1.2" cy="1.2" r="1.2" fill="rgba(59,130,246,0.35)"/>
+        <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+          <circle cx="1.1" cy="1.1" r="1.1" fill="rgba(79,139,255,0.3)"/>
         </pattern>
       </defs>
       <rect x="55%" y="0" width="45%" height="100%" fill="url(#dots)"/>
@@ -220,7 +238,7 @@
   </div>
 
   <div class="hero-grid">
-    <div class="hero-copy">
+    <div class="hero-copy reveal">
       <div class="eyebrow">AI × IT で、できないをできるに。</div>
       <h1 class="hero-title">Turn Ideas<br>into <span class="grad">Reality.</span></h1>
       <p class="hero-desc">AIを活用し、アイデアをカタチにする。<br>データとテクノロジーで、もっと便利で楽しい未来をつくります。</p>
@@ -230,20 +248,21 @@
       <a class="explore-btn" href="#projects">EXPLORE LAB →</a>
     </div>
 
-    <div class="hero-art">
+    <div class="hero-art reveal">
+      <div class="glass-orb"></div>
       <svg viewBox="0 0 480 440" fill="none">
         <defs>
           <linearGradient id="wave" x1="0" y1="440" x2="480" y2="0" gradientUnits="userSpaceOnUse">
             <stop offset="0%" stop-color="#22d3ee"/>
-            <stop offset="45%" stop-color="#3b82f6"/>
-            <stop offset="75%" stop-color="#8b5cf6"/>
-            <stop offset="100%" stop-color="#ec4899"/>
+            <stop offset="45%" stop-color="#4f8bff"/>
+            <stop offset="75%" stop-color="#9b7bf0"/>
+            <stop offset="100%" stop-color="#ec5b9c"/>
           </linearGradient>
         </defs>
         <path d="M20 420 C 140 300, 160 120, 260 90 S 420 140, 470 40"
-              stroke="url(#wave)" stroke-width="26" stroke-linecap="round" fill="none" opacity="0.95"/>
+              stroke="url(#wave)" stroke-width="22" stroke-linecap="round" fill="none" opacity="0.95"/>
         <path d="M20 420 C 140 300, 160 120, 260 90 S 420 140, 470 40"
-              stroke="url(#wave)" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.5" filter="blur(6px)"/>
+              stroke="url(#wave)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.45" filter="blur(6px)"/>
       </svg>
     </div>
   </div>
@@ -251,56 +270,56 @@
 
 <section class="features">
   <div class="feature-grid">
-    <div class="feature f-ai">
+    <div class="feature f-ai reveal">
       <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.8"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></div>
-      <h3>AI</h3><p>AIで未来をもっと身近に</p><div class="bar"></div>
+      <h3>AI</h3><p>AIで未来をもっと身近に</p>
     </div>
-    <div class="feature f-it">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
-      <h3>IT</h3><p>システムで価値をつくる</p><div class="bar"></div>
+    <div class="feature f-it reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4f8bff" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+      <h3>IT</h3><p>システムで価値をつくる</p>
     </div>
-    <div class="feature f-data">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></div>
-      <h3>DATA</h3><p>データで見える新しい可能性</p><div class="bar"></div>
+    <div class="feature f-data reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#9b7bf0" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"/></svg></div>
+      <h3>DATA</h3><p>データで見える新しい可能性</p>
     </div>
-    <div class="feature f-app">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ec4899" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
-      <h3>APP</h3><p>アプリで日常をもっと便利に</p><div class="bar"></div>
+    <div class="feature f-app reveal">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ec5b9c" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+      <h3>APP</h3><p>アプリで日常をもっと便利に</p>
     </div>
   </div>
 </section>
 
 <section class="projects" id="projects">
-  <div class="section-head">
+  <div class="section-head reveal">
     <div class="section-eyebrow">PROJECTS</div>
     <h2>これまでに作ったアプリ</h2>
     <p>実際に公開・運用しているツール&アプリ一覧です</p>
   </div>
   <div class="project-grid">
 
-    <a class="project-card" href="ai.html" style="--grad:linear-gradient(90deg,#22d3ee,#3b82f6)">
-      <span class="project-tag" style="--grad:linear-gradient(90deg,#22d3ee,#3b82f6)">AI</span>
+    <a class="project-card reveal" href="ai.html" style="--grad:linear-gradient(135deg,#22d3ee,#4f8bff)">
+      <span class="project-tag" style="--grad:linear-gradient(90deg,#22d3ee,#4f8bff)">AI</span>
       <h3>生成AIパスポート 対策アプリ</h3>
       <p>生成AIパスポート試験の無料対策アプリ。カテゴリ別演習・略語チートシート・AI先生に質問機能を搭載。</p>
       <span class="project-link">アプリを開く <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
 
-    <a class="project-card" href="it.html" style="--grad:linear-gradient(90deg,#3b82f6,#8b5cf6)">
-      <span class="project-tag" style="--grad:linear-gradient(90deg,#3b82f6,#8b5cf6)">IT</span>
+    <a class="project-card reveal" href="it.html" style="--grad:linear-gradient(135deg,#4f8bff,#9b7bf0)">
+      <span class="project-tag" style="--grad:linear-gradient(90deg,#4f8bff,#9b7bf0)">IT</span>
       <h3>ITパスポート試験対策ドリル</h3>
       <p>ITパスポート試験の演習に特化したドリルアプリ。カテゴリ別に問題を絞って効率よく学習できます。</p>
       <span class="project-link">アプリを開く <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
 
-    <a class="project-card" href="it-sim.html" style="--grad:linear-gradient(90deg,#8b5cf6,#ec4899)">
-      <span class="project-tag" style="--grad:linear-gradient(90deg,#8b5cf6,#ec4899)">PC版</span>
+    <a class="project-card reveal" href="it-sim.html" style="--grad:linear-gradient(135deg,#9b7bf0,#ec5b9c)">
+      <span class="project-tag" style="--grad:linear-gradient(90deg,#9b7bf0,#ec5b9c)">PC版</span>
       <h3>ITパスポート模擬試験（PC版）</h3>
       <p>IPA公式の疑似体験ソフトウェアを再現したPC向け模擬試験。本番そっくりの画面で通し演習ができます。</p>
       <span class="project-link">アプリを開く <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </a>
 
-    <a class="project-card" href="mos.html" style="--grad:linear-gradient(90deg,#ec4899,#f59e0b)">
-      <span class="project-tag" style="--grad:linear-gradient(90deg,#ec4899,#f59e0b)">MOS</span>
+    <a class="project-card reveal" href="mos.html" style="--grad:linear-gradient(135deg,#ec5b9c,#f2a35c)">
+      <span class="project-tag" style="--grad:linear-gradient(90deg,#ec5b9c,#f2a35c)">MOS</span>
       <h3>MOS対策ドリル</h3>
       <p>Word・Excel（一般＋エキスパート／MOS365対応）の対策アプリ。用語ドリルと操作シミュレーションを搭載。</p>
       <span class="project-link">アプリを開く <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
@@ -310,34 +329,30 @@
 </section>
 
 <section class="split" id="about">
-  <div class="split-grid">
-    <div>
-      <div class="section-eyebrow">ABOUT</div>
-      <h2>DATA-TRUST Labについて</h2>
-      <p>AI × IT × DATA × APP をテーマに、学習支援アプリや業務効率化ツールを個人で企画・開発しています。</p>
-      <p>「使う人にとって本当に役立つものを」を軸に、AIを活用したリサーチから設計・実装まで一貫して手がけています。</p>
-    </div>
-    <div class="contact-box" id="contact">
-      <h3>お問い合わせ</h3>
-      <p>お仕事のご相談、アプリに関するフィードバックなどお気軽にどうぞ。</p>
-      <div class="contact-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-        <span>mahitogawa@gmail.com</span>
-      </div>
-      <div class="contact-row">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9.5 9a3 3 0 1 1 4.6 2.5c-1.1.7-1.6 1.3-1.6 2.5M12 17h.01"/><circle cx="12" cy="12" r="10"/></svg>
-        <span>GitHub: mahitogawa</span>
-      </div>
-    </div>
+  <div class="split-grid reveal">
+    <div class="section-eyebrow">ABOUT</div>
+    <h2>DATA-TRUST Labについて</h2>
+    <p>AI × IT × DATA × APP をテーマに、学習支援アプリや業務効率化ツールを個人で企画・開発しています。</p>
+    <p>「使う人にとって本当に役立つものを」を軸に、AIを活用したリサーチから設計・実装まで一貫して手がけています。</p>
   </div>
 </section>
 
 <footer>
   <div class="footer-row">
-    <div class="brand-title">DATA-TRUST <span style="background:linear-gradient(90deg,#22d3ee,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent;">Lab</span></div>
+    <div class="brand-title">DATA-TRUST <span style="background:linear-gradient(90deg,#22d3ee,#4f8bff);-webkit-background-clip:text;background-clip:text;color:transparent;">Lab</span></div>
     <p>&copy; 2026 DATA-TRUST Lab. All rights reserved.</p>
   </div>
 </footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(el=>io.observe(el));
+</script>
 
 </body>
 </html>
