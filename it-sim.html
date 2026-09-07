@@ -196,7 +196,7 @@
         <span class="len-num">100問</span><span class="len-sub">120分・本番同様</span>
       </button>
     </div>
-    <div><a class="back-link" href="it-passport.html">← ITパスポートドリルのメニューに戻る</a></div>
+    <div><a class="back-link" href="it.html">← ITパスポートドリルのメニューに戻る</a></div>
   </div>
 
   <div id="exam-screen" style="display:none;">
@@ -289,7 +289,7 @@ const quizData = [{"q": "業務改善の手法で、計画→実行→評価→�
 const catLabels = { strategy:'ストラテジ系', management:'マネジメント系', technology:'テクノロジ系' };
 const choiceLabels = ['ア','イ','ウ','エ'];
 
-// 自動保存・続きから再開のしくみ（it-passport.htmlと同じlocalStorageを使うが、キー名は別にして衝突を避ける）
+// 自動保存・続きから再開のしくみ（it.htmlと同じlocalStorageを使うが、キー名は別にして衝突を避ける）
 // 選択肢の並び順をシャッフルした後の状態（questions）をそのまま保存する。元のquizDataのインデックスだけを
 // 保存して後で引き直す方式だと、再開のたびに選択肢の並びが変わって解答インデックスがずれてしまうため。
 const SIM_SAVE_KEY = 'itpsim_save_v1';
@@ -489,7 +489,7 @@ function confirmFinish(){
   if(confirm(msg)) finishExam();
 }
 
-// 正答率に応じて結果画面に出す猫のリアクション（表情＋セリフ）を決める（it-passport.htmlと同じ基準）
+// 正答率に応じて結果画面に出す猫のリアクション（表情＋セリフ）を決める（it.htmlと同じ基準）
 function catReaction(pct){
   if(pct === 100) return {face:'😻', line:'パーフェクトにゃ！！完全勝利にゃ〜'};
   if(pct >= 80) return {face:'😸', line:'やるにゃね！いい感じにゃ'};
@@ -597,7 +597,7 @@ function finishExam(){
         ${detailRows}
       </table>
     </div>
-    <div><a class="back-link" href="it-passport.html">← ITパスポートドリルのメニューに戻る</a></div>
+    <div><a class="back-link" href="it.html">← ITパスポートドリルのメニューに戻る</a></div>
   `;
   end.style.display = 'block';
 }
@@ -630,7 +630,7 @@ function toggleDetail(i){
 function exitExam(){
   if(confirm('疑似体験を終了してメニューに戻る？（続きは自動保存されるから、次にこのページを開いたときに再開できるよ）')){
     saveSimProgress();
-    location.href = 'it-passport.html';
+    location.href = 'it.html';
   }
 }
 
