@@ -1002,6 +1002,7 @@ function prevQuestion(){
   if(idx<=0) return;
   idx--;
   saveProgress();
+  resetScroll();
   showQuestion();
 }
 
@@ -1009,6 +1010,7 @@ function jumpToQuestion(n){
   if(n<0 || n>=current.length || n===idx) return;
   idx = n;
   saveProgress();
+  resetScroll();
   showQuestion();
 }
 
@@ -1059,6 +1061,7 @@ function nextQuestion(){
     return;
   }
   saveProgress();
+  resetScroll();
   showQuestion();
 }
 
