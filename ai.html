@@ -1488,11 +1488,14 @@ body.fz-large #ox-question { font-size:28px !important; }
     <div style="color:#fbbf24; font-size:22px; font-weight:bold;">📖 略語チートシート</div>
     <button onclick="hideCheat()" style="background:#334155; color:#fff; border:none; border-radius:20px; padding:8px 20px; font-size:16px; cursor:pointer;">← 戻る</button>
   </div>
-  <div style="color:#94a3b8; font-size:18px; margin-bottom:16px;">2026年新シラバス対応 ／ タップで解説を表示</div>
+    <div style="font-size:14px; color:rgba(255,255,255,.68); margin:2px 0 18px; line-height:1.75; background:rgba(255,255,255,.05); padding:14px 16px; border-radius:10px; border-left:4px solid #fbbf24;">2026年新シラバス対応／タップで解説を表示。見つからない時は「AI先生」にも聞けるよ。</div>
   <input type="text" id="cheat-search" oninput="filterCheat()" placeholder="🔍 用語を検索..." style="width:100%; box-sizing:border-box; padding:14px 16px; margin-bottom:12px; background:#1e293b; border:1px solid #334155; border-radius:12px; color:#f1f5f9; font-size:18px;">
   <div id="cheat-count" style="color:#64748b; font-size:14px; margin-bottom:10px;"></div>
   <div id="cheat-list"></div>
-  <div id="cheat-noresult" style="display:none; color:#64748b; text-align:center; padding:40px 0; font-size:18px;">該当する用語が見つからないにゃ🐱</div>
+    <div id="cheat-noresult" style="display:none; color:#64748b; text-align:center; padding:40px 0; font-size:18px;">
+          該当する用語が見つからないにゃ🐱<br>
+          <button onclick="toggleAI()" style="margin-top:14px; padding:10px 20px; border-radius:10px; border:1px solid rgba(251,191,36,.45); background:rgba(251,191,36,.14); color:#fbbf24; font-size:14px; font-weight:800; cursor:pointer;">🐱 AI先生に聞いてみる</button>
+    </div>
   <button onclick="hideCheat()" style="display:block; width:100%; margin-top:24px; padding:20px; background:#334155; color:#fff; border:none; border-radius:16px; font-size:22px; font-weight:bold; cursor:pointer; touch-action:manipulation;">🐈 TOPに戻る</button>
 </div>
 
