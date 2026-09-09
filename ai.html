@@ -1329,9 +1329,10 @@ body.fz-large #ox-question { font-size:28px !important; }
     <div class="cat-glow"></div>
 
     <!-- ヒーロー画像 -->
-            <div style="width:100%; position:relative; z-index:2;">
-                        <div id="cat-fallback" class="cat-fallback">😱</div>
-            </div>
+                    <div style="width:100%; position:relative; z-index:2;">
+                                <img src="image.png" alt="その勉強法、間違ってます！" style="width:100%; display:block; border-radius:0;" onerror="this.style.display='none'; document.getElementById('cat-fallback').style.display='block';">
+                                <div id="cat-fallback" class="cat-fallback" style="display:none;">😱</div>
+                    </div>
   </div>
 
   <!-- メインCTAボタン -->
